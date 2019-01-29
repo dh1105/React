@@ -10,6 +10,11 @@ class Menu extends Component{
         this.state = {
             selectedDish: null
         }
+        console.log("Constructor called");
+    }
+
+    componentDidMount(){
+        console.log("componentDidMount method called");
     }
 
     onDishSelect(dish) {
@@ -34,6 +39,8 @@ class Menu extends Component{
     }
 
     render() {
+
+        console.log("Render method called");
         const menu = this.props.dishes.map((dish) => {
             return (
               <div  className="col-12 col-md-5 m-1">
