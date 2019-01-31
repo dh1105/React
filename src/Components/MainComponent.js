@@ -5,6 +5,7 @@ import Menu from './MenuComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishdetailComponent';
+import About from './AboutComponent';
 import { DISHES } from '../Shared/dishes';
 import { PROMOTIONS } from '../Shared/promotions';
 import { COMMENTS } from '../Shared/comments';
@@ -49,18 +50,13 @@ class Main extends Component {
     };
 
     return (
-      // <div>
-      //   <Header/>
-      //   <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />
-      //   <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
-      //   <Footer/>
-      // </div>
       <div>
         <Header/>
         <Switch>
           <Route path="/home" component={HomePage} />
           <Route exact path="/menu" component={()=> <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)}/>}/>
           <Route path="/menu/:dishId" component={DishWithId}/>
+          <Route exact path="/aboutus" component={() => <About leaders={this.state.leaders}/>}/>
           <Route exact path="/contactus" component={Contact}/>
           <Redirect to="/home"/>
         </Switch>
